@@ -42,6 +42,11 @@ declare namespace ReactDatetimeClass {
          */
         defaultValue?: Date;
         /*
+         Represents the default date for the picker when the initial value is not set.
+         This prop is parsed by moment.js, so it is possible to use a date string or a moment.js date.
+         */
+        defaultWhenEmpty?: Date;
+        /*
          Defines the format for the date. It accepts any moment.js date format.
          If true the date will be displayed using the defaults for the current locale.
          If false the datepicker is disabled and the component can be used as timepicker.

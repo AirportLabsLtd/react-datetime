@@ -64,23 +64,27 @@ var Datetime = createClass({
 		return state;
 	},
 
+	localDateTime: function ( dateValue, format ) {
+		if ( dateValue && typeof dateValue === 'string' )
+			return this.localMoment( dateValue, format );
+		else if ( dateValue )
+			return this.localMoment( dateValue );
+	},
+
 	getStateFromProps: function( props ) {
 		var formats = this.getFormats( props ),
 			date = props.value || props.defaultValue,
-			selectedDate, viewDate, updateOn, inputValue
+			selectedDate = this.localDateTime(date, formats.datetime),
+			defaultWhenEmpty = this.localDateTime(props.defaultWhenEmpty, formats.datetime),
+			viewDate, updateOn, inputValue
 			;
-
-		if ( date && typeof date === 'string' )
-			selectedDate = this.localMoment( date, formats.datetime );
-		else if ( date )
-			selectedDate = this.localMoment( date );
 
 		if ( selectedDate && !selectedDate.isValid() )
 			selectedDate = null;
 
 		viewDate = selectedDate ?
 			selectedDate.clone().startOf('month') :
-			this.localMoment().startOf('month')
+			(defaultWhenEmpty || this.localMoment().startOf('month'))
 		;
 
 		updateOn = this.getUpdateOn(formats);
