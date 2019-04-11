@@ -76,7 +76,7 @@ var Datetime = createClass({
 	getStateFromProps: function( props ) {
 		var formats = this.getFormats( props ),
 			date = props.value || props.defaultValue,
-			defaultWhenEmpty = this.localDateTime(props.defaultWhenEmpty, formats.datetime),
+			defaultWhenEmpty = this.parseDate(props.defaultWhenEmpty, formats),
 			selectedDate, viewDate, updateOn, inputValue
 			;
 
