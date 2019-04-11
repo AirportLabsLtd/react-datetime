@@ -1,8 +1,50 @@
 Changelog
 =========
+## 2.16.2
+* Turns moment timezone peer dependency in a runtime error when missing using `displayTimezone`.
+
+## 2.16.1
+* Fixes input event overriding
+
+## 2.16.0
+* The prop `disableOnClickOutside` has been renamed to `disableCloseOnClickOutside`
+* The calendar doesn't get closed an open when clicking in the input anymore.
+* Fixes errors not finding dates when customizing day rendering.
+* Event listeners in `inputProps` now only override default behaviour when returning `false`.
+* Adds the `displayTimeZone` prop. Thanks to @martingordon
+
+## 2.15.0
+* New `onNavigateBack` and `onNavigateForward` hooks thanks to @DaanDD and @simeg.
+* Touch improvements by @NicoDos
+* TS and debugging improvements
+
+## 2.14.0
+* Make `viewDate` dynamic
+
+## 2.13.0
+* Use more appropriate cursor for empty space in time picker and in day texts
+* Add `viewDate` prop that sets a value when opening the calendar when there is no selected date
+* Make `disableOnClickOutside` work as intended
+* Better touch support for tapping and holding
+* Use static property `defaultProps` instead of `getDefaultProps`
+
+## 2.12.0
+* The `renderInput` prop now receives `closeCalendar` function as well
+
+## 2.11.1
+* The open prop should now work as intended
+
+## 2.11.0
+* onFocus now receives the browser event
+* Do not open browser menu on right click of arrows in time view
+* Open calendar when onClick is triggered, before it would just react to onFocus
+* Update TypeScript definitions for value and defaultValue to comply with code
+* Fix bug where AM/PM would not sync between component value and input field value
+* Add renderInput prop which let's the consumer of the component render their own HTML input element
+
 ## 2.10.3
-* Update react-onclickoutside dependancy
-* Remove isValidDate check before rendering as implementation was causing crashes in some ednge cases.
+* Update react-onclickoutside dependency
+* Remove isValidDate check before rendering as implementation was causing crashes in some edge cases.
 
 ## 2.10.2
 * Move @types/react back to devDependencies
